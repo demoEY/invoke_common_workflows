@@ -1,0 +1,17 @@
+name: Invoke Parameterized Hello World
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  invoke_hello_world:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger Hello World workflow
+        uses: demoEY/central_repo/.github/workflows/parameterised_workflow.yaml@main
+        with:
+          message: "Hello from invoking workflow!"
+          recipient: "Anshul"
