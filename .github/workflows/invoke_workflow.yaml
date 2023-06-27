@@ -12,7 +12,7 @@ on:
 
 jobs:
   call-workflow-A:
-    uses: ./.github/workflows/parameterised_workflow.yaml
+    uses: demoEY/central_repo/.github/workflows/parameterised_workflow.yaml@main
     with:
       username: Anshul
     secrets:
