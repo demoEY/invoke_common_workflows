@@ -1,15 +1,19 @@
 name: Invoke Parameterized Hello World
 
+
 on:
+  push:
+    branches: none # [ main ]
+  pull_request:
+    branches: none # [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  invoke_hello_world:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Trigger Hello World workflow
-        uses: demoEY/central_repo/.github/workflows/parameterised_workflow.yaml@main
-        with:
-          message: "Hello from invoking workflow!"
-          recipient: "Anshul"
+  call-workflow-A:
+    uses: ./.github/workflows/parameterised_workflow.yaml
+    with:
+      username: Anshul
+    secrets:
+      token: ${{ secrets.TOKEN }}
